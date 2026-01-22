@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Project Server - Garry's Mod</title>
+    <title>Nova Project - Garry's Mod Metrostroi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -74,31 +74,9 @@
         }
         
         /* Анимации */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(157, 114, 255, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(157, 114, 255, 0.8); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
         @keyframes slideIn {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
-        }
-        
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         
         /* Header */
@@ -131,7 +109,6 @@
             background: var(--gradient-secondary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: float 3s ease-in-out infinite;
         }
         
         .logo-text {
@@ -165,7 +142,7 @@
             font-weight: bold;
         }
         
-        .server-status-badge {
+        .server-status {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -173,7 +150,6 @@
             padding: 10px 20px;
             border-radius: 50px;
             border: 1px solid rgba(157, 114, 255, 0.3);
-            box-shadow: 0 0 15px rgba(157, 114, 255, 0.2);
         }
         
         .status-indicator {
@@ -181,20 +157,6 @@
             height: 12px;
             border-radius: 50%;
             background: var(--success);
-            position: relative;
-        }
-        
-        .status-indicator::after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            border-radius: 50%;
-            background: var(--success);
-            opacity: 0.4;
-            animation: pulse 2s infinite;
         }
         
         .status-text {
@@ -437,7 +399,6 @@
             font-weight: 600;
             margin-bottom: 20px;
             border: 1px solid rgba(157, 114, 255, 0.3);
-            animation: float 4s ease-in-out infinite;
         }
         
         .news-title {
@@ -513,18 +474,6 @@
             overflow: hidden;
         }
         
-        .ai-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(157, 114, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: gradientFlow 4s linear infinite;
-        }
-        
         .ai-title {
             font-size: 1.8rem;
             background: var(--gradient-secondary);
@@ -535,8 +484,6 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            position: relative;
-            z-index: 1;
         }
         
         .ai-subtitle {
@@ -544,8 +491,6 @@
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
         }
         
         .ai-chat {
@@ -671,13 +616,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            animation: pulse 2s infinite;
         }
         
         .ai-send-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(157, 114, 255, 0.4);
-            animation: none;
         }
         
         .ai-quick-questions {
@@ -1178,6 +1121,11 @@
                     <div>
                         <div class="logo-text">METROSTROI</div>
                         <div class="logo-subtitle">NOVA PROJECT</div>
+                    </div>
+                </div>
+                <div class="server-status">
+                    <div class="status-indicator"></div>
+                    <div class="status-text">СЕРВЕР ОНЛАЙН</div>
                 </div>
             </div>
         </div>
@@ -2145,7 +2093,7 @@
                 redirectTo: null
             },
             "как подключиться": {
-                answer: "Для подключения к серверу Metrostroi в Garry's Mod:\n\n1. Установите Garry's Mod и дополнение Metrostroi из Steam Workshop\n2. Добавьте сервер в избранное: 185.71.65.92:27015\n3. Подключитесь и дождитесь загрузки ресурсов (5-10 минут)\n4. Создайте аккаунт и начните игру",
+                answer: "Для подключения к серверу Metrostroi в Garry's Mod:\n\n1. Установите Garry's Mod и дополнение Metrostroi из Steam Workshop\n2. Добавьте сервер в избранное: 87.251.16.84:27015\n3. Подключитесь и дождитесь загрузки ресурсов (5-10 минут)\n4. Создайте аккаунт и начните игру",
                 redirectTo: "gmod",
                 redirectMessage: "Открыть раздел 'Подключение к серверу' с подробной инструкцией?"
             },
@@ -2350,25 +2298,6 @@
         // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
             showSection('news');
-            
-            // Создаем плавающие элементы
-            const icons = ['fa-subway', 'fa-train', 'fa-train-subway', 'fa-tram', 'fa-bus', 'fa-map'];
-            for (let i = 0; i < 15; i++) {
-                const el = document.createElement('div');
-                el.style.cssText = `
-                    position: fixed;
-                    pointer-events: none;
-                    z-index: 0;
-                    opacity: 0.05;
-                    font-size: ${Math.random() * 3 + 1}rem;
-                    color: var(--light-purple);
-                    left: ${Math.random() * 100}vw;
-                    top: ${Math.random() * 100}vh;
-                    animation: float ${Math.random() * 20 + 10}s ease-in-out infinite;
-                `;
-                el.innerHTML = `<i class="fas ${icons[Math.floor(Math.random() * icons.length)]}"></i>`;
-                document.body.appendChild(el);
-            }
             
             // Первое сообщение ИИ
             setTimeout(() => {
