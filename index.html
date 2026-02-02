@@ -6,7 +6,6 @@
     <title>METROSTROI NOVA PROJECT | GARRY'S MOD SERVER</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Оптимизированные стили для производительности */
         :root {
             --primary-dark: #0a0a14;
             --secondary-dark: #1a1a2a;
@@ -41,7 +40,6 @@
             position: relative;
         }
         
-        /* Оптимизированный фон с уменьшенной нагрузкой */
         body::before {
             content: '';
             position: fixed;
@@ -56,42 +54,22 @@
             background-position: center;
             background-attachment: fixed;
             z-index: -1;
-            will-change: transform;
-        }
-        
-        /* Убраны ненужные трансформации и фильтры для оптимизации */
-        .gmod-header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
-            border-bottom: 3px solid var(--accent-light-purple);
-            box-shadow: var(--shadow-heavy);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .gmod-button {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-light-purple));
-            border: 2px solid #5a189a;
-            transition: all 0.2s ease;
-        }
-        
-        .gmod-button:hover {
-            background: linear-gradient(135deg, var(--accent-light-purple), var(--accent-purple));
-            box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        /* Шапка */
-        .header {
-            background: rgba(10, 10, 20, 0.98);
-            padding: 15px 0;
-            border-bottom: 3px solid var(--accent-purple);
         }
         
         .container {
             max-width: 1800px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        .header {
+            background: rgba(10, 10, 20, 0.98);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--accent-purple);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-heavy);
         }
         
         .header-content {
@@ -148,7 +126,6 @@
             font-weight: bold;
         }
         
-        /* Навигация - оптимизирована */
         .nav-menu {
             display: flex;
             gap: 5px;
@@ -195,7 +172,6 @@
             border-color: var(--accent-light-purple);
         }
         
-        /* Статус сервера */
         .server-status {
             display: flex;
             align-items: center;
@@ -232,7 +208,6 @@
             font-size: 1rem;
         }
         
-        /* Основной контент */
         .main-content {
             display: flex;
             gap: 30px;
@@ -240,7 +215,6 @@
             min-height: calc(100vh - 150px);
         }
         
-        /* Боковая панель */
         .sidebar {
             width: 300px;
             flex-shrink: 0;
@@ -344,7 +318,6 @@
             font-size: 0.9rem;
         }
         
-        /* Основная область контента */
         .content-area {
             flex: 1;
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.98), rgba(40, 40, 60, 0.98));
@@ -407,7 +380,6 @@
             border: 2px solid #5a189a;
         }
         
-        /* Новости */
         .news-container {
             display: flex;
             flex-direction: column;
@@ -486,7 +458,6 @@
             background: rgba(123, 44, 191, 0.25);
         }
         
-        /* Особенности */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -526,7 +497,6 @@
             font-size: 1rem;
         }
         
-        /* Команда */
         .staff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -581,7 +551,6 @@
             letter-spacing: 0.5px;
         }
         
-        /* Правила */
         .rules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -628,7 +597,6 @@
             font-size: 1rem;
         }
         
-        /* Ссылки */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -723,7 +691,6 @@
             background: linear-gradient(135deg, var(--accent-light-purple), var(--accent-purple));
         }
         
-        /* VIP стили */
         .vip-badge {
             display: inline-flex;
             align-items: center;
@@ -738,7 +705,6 @@
             border: 2px solid #ccaa00;
         }
         
-        /* Футер */
         .footer {
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.98), rgba(20, 20, 35, 0.98));
             padding: 25px 0;
@@ -774,7 +740,6 @@
             letter-spacing: 1px;
         }
         
-        /* Кнопки */
         .action-button {
             display: inline-flex;
             align-items: center;
@@ -798,7 +763,6 @@
             background: linear-gradient(135deg, var(--accent-light-purple), var(--accent-purple));
         }
         
-        /* Стиль консоли */
         .console-style {
             font-family: 'Courier New', monospace;
             border: 2px solid var(--online-green);
@@ -809,10 +773,43 @@
             font-size: 0.9rem;
         }
         
-        /* Адаптивность */
-        @media (max-width: 1600px) {
-            .container {
-                max-width: 1400px;
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-light-purple));
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            z-index: 10000;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #5a189a;
+            max-width: 350px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
             }
         }
         
@@ -841,21 +838,6 @@
             .rules-grid,
             .links-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-        
-        @media (max-width: 1200px) {
-            .container {
-                max-width: 100%;
-                padding: 0 15px;
-            }
-            
-            .content-title {
-                font-size: 1.8rem;
-            }
-            
-            .news-title {
-                font-size: 1.3rem;
             }
         }
         
@@ -937,49 +919,6 @@
             }
         }
         
-        /* Оптимизированные уведомления */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-light-purple));
-            color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            z-index: 10000;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 2px solid #5a189a;
-            max-width: 350px;
-            animation: slideIn 0.3s ease;
-        }
-        
-        /* Улучшенная производительность для анимаций */
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-        
-        /* Оптимизация скролла */
         * {
             scrollbar-width: thin;
             scrollbar-color: var(--accent-purple) rgba(0, 0, 0, 0.1);
@@ -1006,8 +945,7 @@
     </style>
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header gmod-header">
+    <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
@@ -1021,64 +959,61 @@
                 </div>
                 <div class="server-status">
                     <div class="status-dot"></div>
-                    <div class="status-text">Онлайн</div>
+                    <div class="status-text">Онлайн: <span class="online-count">28/64</span></div>
                 </div>
             </div>
             
-            <!-- Навигация -->
             <div class="nav-menu">
-                <button class="nav-btn active" onclick="showSection('news')">
+                <button class="nav-btn active" data-section="news">
                     <i class="fas fa-newspaper"></i> Новости
                 </button>
-                <button class="nav-btn" onclick="showSection('features')">
+                <button class="nav-btn" data-section="features">
                     <i class="fas fa-star"></i> Особенности
                 </button>
-                <button class="nav-btn" onclick="showSection('staff')">
+                <button class="nav-btn" data-section="staff">
                     <i class="fas fa-users"></i> Команда
                 </button>
-                <button class="nav-btn" onclick="showSection('rules')">
+                <button class="nav-btn" data-section="rules">
                     <i class="fas fa-gavel"></i> Правила
                 </button>
-                <button class="nav-btn" onclick="showSection('links')">
+                <button class="nav-btn" data-section="links">
                     <i class="fas fa-link"></i> Ссылки
                 </button>
-                <button class="nav-btn gmod-button" onclick="connectToServer()">
+                <button class="nav-btn" onclick="connectToServer()">
                     <i class="fas fa-gamepad"></i> Подключиться
                 </button>
             </div>
         </div>
     </header>
     
-    <!-- Основной контент -->
     <div class="container">
         <div class="main-content">
-            <!-- Боковая панель -->
             <aside class="sidebar">
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Основные разделы</h3>
                     <ul class="sidebar-list">
                         <li class="sidebar-item">
-                            <a class="sidebar-link active" onclick="showSection('news')">
+                            <a class="sidebar-link active" data-section="news">
                                 <i class="fas fa-newspaper"></i> Новости сервера
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" onclick="showSection('features')">
+                            <a class="sidebar-link" data-section="features">
                                 <i class="fas fa-star"></i> Особенности
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" onclick="showSection('staff')">
+                            <a class="sidebar-link" data-section="staff">
                                 <i class="fas fa-users"></i> Команда проекта
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" onclick="showSection('rules')">
+                            <a class="sidebar-link" data-section="rules">
                                 <i class="fas fa-gavel"></i> Правила игры
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" onclick="showSection('links')">
+                            <a class="sidebar-link" data-section="links">
                                 <i class="fas fa-link"></i> Полезные ссылки
                             </a>
                         </li>
@@ -1096,7 +1031,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" onclick="showSection('links')">
+                            <a class="sidebar-link" data-section="links">
                                 <i class="fas fa-download"></i> Моды для GMod
                             </a>
                         </li>
@@ -1140,6 +1075,7 @@
                         </div>
                         <div class="info-row">
                             <span class="info-label">Онлайн:</span>
+                            <span class="info-value online-count">28/64 игроков</span>
                         </div>
                         <div class="info-row">
                             <span class="info-label">IP адрес:</span>
@@ -1163,15 +1099,13 @@
                     <div class="console-style">
                         connect 87.251.16.84:27015
                     </div>
-                    <button class="action-button gmod-button" onclick="copyToClipboard('connect 87.251.16.84:27015')" style="width: 100%; margin-top: 15px;">
+                    <button class="action-button" onclick="copyToClipboard('connect 87.251.16.84:27015')" style="width: 100%; margin-top: 15px;">
                         <i class="fas fa-copy"></i> Копировать команду
                     </button>
                 </div>
             </aside>
             
-            <!-- Основная область контента -->
             <main class="content-area">
-                <!-- Новости -->
                 <section id="news-section" class="content-section active">
                     <div class="content-header">
                         <h1 class="content-title"><i class="fas fa-newspaper"></i> Последние новости</h1>
@@ -1182,7 +1116,6 @@
                     </div>
                     
                     <div class="news-container">
-                        <!-- Новость 1 -->
                         <article class="news-card">
                             <div class="news-date">24 ЯНВАРЯ 2026</div>
                             <h2 class="news-title">Ролевая сессия и новые поезда!</h2>
@@ -1223,7 +1156,6 @@
                             </div>
                         </article>
                         
-                        <!-- Новость 2 -->
                         <article class="news-card">
                             <div class="news-date">28 ДЕКАБРЯ 2025</div>
                             <h2 class="news-title">Технические работы и обновление</h2>
@@ -1258,7 +1190,6 @@
                             </div>
                         </article>
                         
-                        <!-- Новость 3 -->
                         <article class="news-card">
                             <div class="news-date">31 ДЕКАБРЯ 2025</div>
                             <h2 class="news-title">Рекордная база данных игроков!</h2>
@@ -1288,7 +1219,7 @@
                                 </div>
                             </div>
                             <div style="margin-top: 20px;">
-                                <button class="action-button gmod-button" onclick="connectToServer()">
+                                <button class="action-button" onclick="connectToServer()">
                                     <i class="fas fa-gamepad"></i> Присоединиться к сообществу
                                 </button>
                             </div>
@@ -1296,7 +1227,6 @@
                     </div>
                 </section>
                 
-                <!-- Особенности -->
                 <section id="features-section" class="content-section">
                     <div class="content-header">
                         <h1 class="content-title"><i class="fas fa-star"></i> Особенности сервера</h1>
@@ -1305,12 +1235,9 @@
                         </p>
                     </div>
                     
-                    <div class="features-grid">
-                        <!-- Особенности будут загружены динамически -->
-                    </div>
+                    <div class="features-grid"></div>
                 </section>
                 
-                <!-- Команда -->
                 <section id="staff-section" class="content-section">
                     <div class="content-header">
                         <h1 class="content-title"><i class="fas fa-users"></i> Команда проекта</h1>
@@ -1319,12 +1246,9 @@
                         </p>
                     </div>
                     
-                    <div class="staff-grid">
-                        <!-- Команда будет загружена динамически -->
-                    </div>
+                    <div class="staff-grid"></div>
                 </section>
                 
-                <!-- Правила -->
                 <section id="rules-section" class="content-section">
                     <div class="content-header">
                         <h1 class="content-title"><i class="fas fa-gavel"></i> Правила сервера</h1>
@@ -1333,12 +1257,9 @@
                         </p>
                     </div>
                     
-                    <div class="rules-grid">
-                        <!-- Правила будут загружены динамически -->
-                    </div>
+                    <div class="rules-grid"></div>
                 </section>
                 
-                <!-- Ссылки -->
                 <section id="links-section" class="content-section">
                     <div class="content-header">
                         <h1 class="content-title"><i class="fas fa-link"></i> Полезные ссылки</h1>
@@ -1347,15 +1268,12 @@
                         </p>
                     </div>
                     
-                    <div class="links-grid">
-                        <!-- Ссылки будут загружены динамически -->
-                    </div>
+                    <div class="links-grid"></div>
                 </section>
             </main>
         </div>
     </div>
     
-    <!-- Футер -->
     <footer class="footer">
         <div class="container">
             <div class="footer-text">
@@ -1388,9 +1306,6 @@
     </footer>
 
     <script>
-        // Оптимизированный JavaScript код
-        'use strict';
-
         // Данные для динамической загрузки
         const featuresData = [
             { icon: 'fa-subway', title: '17+ моделей поездов <span class="vip-badge">VIP+2</span>', text: 'Большой выбор поездов, включая новые модели для VIP-игроков.' },
@@ -1445,311 +1360,301 @@
             { icon: 'fas fa-book', title: 'Гайды и документация', desc: 'Официальная документация и обучающие материалы', url: 'https://docs.novas-pro.ru', btnText: 'Читать гайды' }
         ];
 
-        // Инициализация данных
-        function initializeData() {
-            loadFeatures();
-            loadStaff();
-            loadRules();
-            loadLinks();
-        }
+        class NovaProjectApp {
+            constructor() {
+                this.currentSection = 'news';
+                this.onlineCount = 28;
+                this.maxOnline = 64;
+                this.init();
+            }
 
-        function loadFeatures() {
-            const container = document.querySelector('#features-section .features-grid');
-            if (!container) return;
+            init() {
+                this.setupEventListeners();
+                this.loadData();
+                this.setupOnlineCounter();
+                this.setupAnimations();
+            }
 
-            container.innerHTML = featuresData.map(feature => `
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas ${feature.icon}"></i>
+            setupEventListeners() {
+                // Навигация по вкладкам
+                document.querySelectorAll('.nav-btn, .sidebar-link').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const section = btn.dataset.section || 
+                                       btn.getAttribute('onclick')?.match(/showSection\('(\w+)'\)/)?.[1];
+                        if (section) {
+                            this.showSection(section);
+                        }
+                    });
+                });
+            }
+
+            loadData() {
+                this.loadFeatures();
+                this.loadStaff();
+                this.loadRules();
+                this.loadLinks();
+            }
+
+            loadFeatures() {
+                const container = document.querySelector('#features-section .features-grid');
+                if (!container) return;
+
+                container.innerHTML = featuresData.map(feature => `
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas ${feature.icon}"></i>
+                        </div>
+                        <h3 class="feature-title">${feature.title}</h3>
+                        <p class="feature-text">${feature.text}</p>
                     </div>
-                    <h3 class="feature-title">${feature.title}</h3>
-                    <p class="feature-text">${feature.text}</p>
-                </div>
-            `).join('');
-        }
+                `).join('');
+            }
 
-        function loadStaff() {
-            const container = document.querySelector('#staff-section .staff-grid');
-            if (!container) return;
+            loadStaff() {
+                const container = document.querySelector('#staff-section .staff-grid');
+                if (!container) return;
 
-            container.innerHTML = staffData.map(staff => `
-                <div class="staff-card">
-                    <div class="staff-avatar">
-                        <i class="fas ${staff.icon}"></i>
-                    </div>
-                    <div class="staff-info">
-                        <div class="staff-name">${staff.name}</div>
-                        <div class="staff-role">${staff.role}</div>
-                        <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 5px;">
-                            ${staff.desc}
+                container.innerHTML = staffData.map(staff => `
+                    <div class="staff-card">
+                        <div class="staff-avatar">
+                            <i class="fas ${staff.icon}"></i>
+                        </div>
+                        <div class="staff-info">
+                            <div class="staff-name">${staff.name}</div>
+                            <div class="staff-role">${staff.role}</div>
+                            <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 5px;">
+                                ${staff.desc}
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
-        }
+                `).join('');
+            }
 
-        function loadRules() {
-            const container = document.querySelector('#rules-section .rules-grid');
-            if (!container) return;
+            loadRules() {
+                const container = document.querySelector('#rules-section .rules-grid');
+                if (!container) return;
 
-            container.innerHTML = rulesData.map(rule => `
-                <div class="rule-card">
-                    <h3 class="rule-title">
-                        <span class="rule-number">${rule.number}</span> ${rule.title}
-                    </h3>
-                    <p class="rule-text">${rule.text}</p>
-                </div>
-            `).join('');
-        }
-
-        function loadLinks() {
-            const container = document.querySelector('#links-section .links-grid');
-            if (!container) return;
-
-            container.innerHTML = linksData.map(link => `
-                <div class="link-card">
-                    <div class="link-header">
-                        <div class="link-icon">
-                            <i class="${link.icon}"></i>
-                        </div>
-                        <h3 class="link-title">${link.title}</h3>
+                container.innerHTML = rulesData.map(rule => `
+                    <div class="rule-card">
+                        <h3 class="rule-title">
+                            <span class="rule-number">${rule.number}</span> ${rule.title}
+                        </h3>
+                        <p class="rule-text">${rule.text}</p>
                     </div>
-                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
-                        ${link.desc}
-                    </p>
-                    <div class="link-url-container">
-                        <span class="link-url">${link.url}</span>
-                        <button class="copy-btn" onclick="copyToClipboard('${link.url}')">
-                            <i class="fas fa-copy"></i>
+                `).join('');
+            }
+
+            loadLinks() {
+                const container = document.querySelector('#links-section .links-grid');
+                if (!container) return;
+
+                container.innerHTML = linksData.map(link => {
+                    const isServerLink = link.isServer;
+                    return `
+                    <div class="link-card">
+                        <div class="link-header">
+                            <div class="link-icon">
+                                <i class="${link.icon}"></i>
+                            </div>
+                            <h3 class="link-title">${link.title}</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                            ${link.desc}
+                        </p>
+                        <div class="link-url-container">
+                            <span class="link-url">${link.url}</span>
+                            <button class="copy-btn" onclick="app.copyToClipboard('${link.url}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        ${isServerLink ? 
+                            `<button class="link-button" onclick="app.connectToServer()">
+                                <i class="fas fa-gamepad"></i> ${link.btnText}
+                            </button>` :
+                            `<a href="${link.url}" target="_blank" class="link-button">
+                                <i class="${link.icon.includes('fab') ? link.icon.split(' ')[0] : 'fas fa-external-link-alt'}"></i> ${link.btnText}
+                            </a>`
+                        }
+                    </div>
+                `}).join('');
+            }
+
+            showSection(sectionId) {
+                // Обновление навигации
+                document.querySelectorAll('.nav-btn, .sidebar-link').forEach(el => {
+                    el.classList.remove('active');
+                });
+                
+                // Обновление активных элементов
+                document.querySelectorAll(`[data-section="${sectionId}"]`).forEach(el => {
+                    el.classList.add('active');
+                });
+                
+                // Скрытие всех секций
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Показать выбранную секцию
+                const targetSection = document.getElementById(`${sectionId}-section`);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    targetSection.scrollTop = 0;
+                }
+                
+                this.currentSection = sectionId;
+                localStorage.setItem('activeSection', sectionId);
+            }
+
+            connectToServer() {
+                const ip = '87.251.16.84:27015';
+                const command = `connect ${ip}`;
+                
+                this.copyToClipboard(command);
+                this.showModal(`
+                    <h2 style="color: var(--accent-bright-purple); margin-bottom: 15px;">
+                        <i class="fas fa-gamepad"></i> Подключение к серверу
+                    </h2>
+                    <div style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 style="color: white; margin-bottom: 10px;">Инструкция:</h3>
+                        <ol style="color: var(--text-secondary); padding-left: 20px; line-height: 1.6;">
+                            <li>Запустите Garry's Mod</li>
+                            <li>Нажмите клавишу <strong style="color: var(--accent-bright-purple);">~</strong></li>
+                            <li>Вставьте команду: <code style="background: rgba(0,0,0,0.7); padding: 5px; border-radius: 5px; color: var(--online-green);">${command}</code></li>
+                            <li>Нажмите Enter</li>
+                        </ol>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button onclick="app.copyToClipboard('${command}')" class="action-button" style="flex: 1;">
+                            <i class="fas fa-copy"></i> Копировать команду
+                        </button>
+                        <button onclick="app.closeModal()" class="action-button" style="flex: 1; background: linear-gradient(135deg, #333, #444); border-color: #555;">
+                            Закрыть
                         </button>
                     </div>
-                    ${link.isServer ? 
-                        `<button class="link-button gmod-button" onclick="connectToServer()">
-                            <i class="fas fa-gamepad"></i> ${link.btnText}
-                        </button>` :
-                        `<a href="${link.url}" target="_blank" class="link-button">
-                            <i class="${link.icon.includes('fab') ? link.icon.split(' ')[0] : 'fas fa-external-link-alt'}"></i> ${link.btnText}
-                        </a>`
-                    }
-                </div>
-            `).join('');
-        }
-
-        // Управление разделами
-        function showSection(sectionId) {
-            // Обновление навигации
-            document.querySelectorAll('.nav-btn, .sidebar-link').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Обновление активных элементов
-            document.querySelectorAll(`[onclick="showSection('${sectionId}')"]`).forEach(el => {
-                el.classList.add('active');
-            });
-            
-            // Скрытие всех секций
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Показать выбранную секцию
-            const targetSection = document.getElementById(`${sectionId}-section`);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                targetSection.scrollTop = 0;
+                `);
             }
-            
-            // Сохранить в localStorage
-            localStorage.setItem('activeSection', sectionId);
-        }
 
-        // Подключение к серверу
-        function connectToServer() {
-            const ip = '87.251.16.84:27015';
-            const command = `connect ${ip}`;
-            
-            copyToClipboard(command);
-            showModal(`
-                <h2 style="color: var(--accent-bright-purple); margin-bottom: 15px;">
-                    <i class="fas fa-gamepad"></i> Подключение к серверу
-                </h2>
-                <div style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: white; margin-bottom: 10px;">Инструкция:</h3>
-                    <ol style="color: var(--text-secondary); padding-left: 20px; line-height: 1.6;">
-                        <li>Запустите Garry's Mod</li>
-                        <li>Нажмите клавишу <strong style="color: var(--accent-bright-purple);">~</strong></li>
-                        <li>Вставьте команду: <code style="background: rgba(0,0,0,0.7); padding: 5px; border-radius: 5px; color: var(--online-green);">${command}</code></li>
-                        <li>Нажмите Enter</li>
-                    </ol>
-                </div>
-                <div style="display: flex; gap: 10px;">
-                    <button onclick="copyToClipboard('${command}')" class="action-button" style="flex: 1;">
-                        <i class="fas fa-copy"></i> Копировать команду
-                    </button>
-                    <button onclick="closeModal()" class="action-button" style="flex: 1; background: linear-gradient(135deg, #333, #444); border-color: #555;">
-                        Закрыть
-                    </button>
-                </div>
-            `);
-        }
-
-        // Поддержка
-        function showSupport() {
-            copyToClipboard('https://vk.me/novas_project');
-            showNotification('Ссылка на поддержку скопирована!');
-        }
-
-        // Копирование в буфер обмена
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showNotification('Текст скопирован в буфер обмена!');
-            }).catch(err => {
-                console.error('Ошибка копирования:', err);
-                showNotification('Не удалось скопировать текст');
-            });
-        }
-
-        // Модальное окно
-        let currentModal = null;
-
-        function showModal(content) {
-            closeModal();
-            
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.85);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 10000;
-                padding: 20px;
-            `;
-            
-            modal.innerHTML = `
-                <div style="
-                    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
-                    border-radius: 15px;
-                    padding: 25px;
-                    max-width: 500px;
-                    width: 100%;
-                    border: 2px solid var(--accent-purple);
-                    position: relative;
-                ">
-                    <button onclick="closeModal()" style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: none;
-                        border: none;
-                        color: var(--text-secondary);
-                        font-size: 1.5rem;
-                        cursor: pointer;
-                    ">&times;</button>
-                    ${content}
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            currentModal = modal;
-            
-            // Закрытие по ESC
-            const keyHandler = (e) => {
-                if (e.key === 'Escape') closeModal();
-            };
-            document.addEventListener('keydown', keyHandler);
-            modal._keyHandler = keyHandler;
-        }
-
-        function closeModal() {
-            if (currentModal) {
-                document.removeEventListener('keydown', currentModal._keyHandler);
-                currentModal.remove();
-                currentModal = null;
-            }
-        }
-
-        // Уведомления
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <span>${message}</span>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-        }
-
-        // Обновление онлайна
-        function updateOnlineCount() {
-            const counters = document.querySelectorAll('.online-count, .info-value');
-            const max = 64;
-            
-            setInterval(() => {
-                const change = Math.floor(Math.random() * 3) - 1;
-                let current = 28;
-                
-                const newValue = Math.max(10, Math.min(max - 5, current + change));
-                
-                counters.forEach(counter => {
-                    if (counter.classList.contains('online-count')) {
-                        counter.textContent = `${newValue}/${max}`;
-                    } else if (counter.textContent.includes('/64 игроков')) {
-                        counter.textContent = `${newValue}/64 игроков`;
-                    }
+            copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    this.showNotification('Текст скопирован в буфер обмена!');
+                }).catch(err => {
+                    console.error('Ошибка копирования:', err);
+                    this.showNotification('Не удалось скопировать текст');
                 });
-            }, 45000);
+            }
+
+            showSupport() {
+                this.copyToClipboard('https://vk.me/novas_project');
+            }
+
+            showModal(content) {
+                this.closeModal();
+                
+                const modal = document.createElement('div');
+                modal.className = 'modal-overlay';
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.85);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 10000;
+                    padding: 20px;
+                `;
+                
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <button onclick="app.closeModal()" class="modal-close">&times;</button>
+                        ${content}
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                this.currentModal = modal;
+                
+                document.addEventListener('keydown', this.handleEscapeKey);
+            }
+
+            handleEscapeKey = (e) => {
+                if (e.key === 'Escape') this.closeModal();
+            }
+
+            closeModal() {
+                if (this.currentModal) {
+                    document.removeEventListener('keydown', this.handleEscapeKey);
+                    this.currentModal.remove();
+                    this.currentModal = null;
+                }
+            }
+
+            showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span>${message}</span>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+
+            setupOnlineCounter() {
+                const updateCounter = () => {
+                    const change = Math.floor(Math.random() * 3) - 1;
+                    this.onlineCount = Math.max(10, Math.min(this.maxOnline - 5, this.onlineCount + change));
+                    
+                    document.querySelectorAll('.online-count').forEach(counter => {
+                        counter.textContent = `${this.onlineCount}/${this.maxOnline}`;
+                    });
+                };
+                
+                setInterval(updateCounter, 45000);
+            }
+
+            setupAnimations() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                document.querySelectorAll('.news-card, .feature-card, .staff-card, .rule-card, .link-card').forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    observer.observe(el);
+                });
+            }
         }
 
-        // Инициализация при загрузке
+        // Инициализация приложения
+        let app;
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Загрузка данных
-            initializeData();
+            app = new NovaProjectApp();
             
             // Восстановление активного раздела
             const savedSection = localStorage.getItem('activeSection') || 'news';
-            showSection(savedSection);
+            app.showSection(savedSection);
             
-            // Обновление онлайна
-            updateOnlineCount();
-            
-            // Анимация статуса
-            const statusDot = document.querySelector('.status-dot');
-            if (statusDot) {
-                setInterval(() => {
-                    statusDot.style.animation = 'none';
-                    setTimeout(() => {
-                        statusDot.style.animation = 'pulse 2s infinite';
-                    }, 10);
-                }, 4000);
-            }
-            
-            // Плавное появление контента
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('.news-card, .feature-card, .staff-card, .rule-card, .link-card').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                observer.observe(el);
-            });
+            // Глобальные функции для onclick атрибутов
+            window.connectToServer = () => app.connectToServer();
+            window.showSupport = () => app.showSupport();
+            window.copyToClipboard = (text) => app.copyToClipboard(text);
         });
     </script>
 </body>
